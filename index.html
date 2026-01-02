@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  
+  <title>Sublimme Laser - Depilação a Laser e Estética</title>
+  <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon">
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Jost:300,400,500,600,700,800&display=swap" rel="stylesheet">
+
+  <style>
+      /* --- 1. IDENTIDADE VISUAL --- */
+      :root {
+          --turquesa: #00c2b2;
+          --azul-escuro: #003366;
+          --cinza-texto: #555555;
+          --verde-whatsapp: #25d366;
+          --fundo-cinza: #f9f9f9;
+      }
+      body { 
+          font-family: 'Jost', sans-serif; 
+          color: var(--cinza-texto); 
+          overflow-x: hidden;
+      }
+      
+      /* --- 2. MENU --- */
+      .navbar {
+          background-color: #ffffff;
+          box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+          min-height: 90px;
+          padding: 10px 0;
+      }
+      .navbar-brand img { height: 5rem; width: auto; }
+      .nav-link {
+          color: var(--turquesa) !important;
+          font-weight: 700;
+          text-transform: uppercase;
+          font-size: 0.9rem;
+          letter-spacing: 0.5px;
+          margin-left: 20px;
+          transition: color 0.3s;
+      }
+      .nav-link:hover { color: var(--azul-escuro) !important; }
+      
+      .dropdown-menu { border-top: 4px solid var(--turquesa); border-radius: 0 0 8px 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+      .dropdown-item { color: var(--turquesa); font-weight: 600; font-size: 0.9rem; padding: 10px 20px; border-bottom: 1px solid #f5f5f5; }
+      .dropdown-item:hover { background-color: #e0f7fa; padding-left: 25px; transition: 0.3s; }
+
+      /* --- 3. ANIMAÇÕES --- */
+      /* Animação de Pulsar para Botões */
+      @keyframes pulse-custom {
+          0% { box-shadow: 0 0 0 0 rgba(0, 194, 178, 0.7); transform: scale(1); }
+          70% { box-shadow: 0 0 0 15px rgba(0, 194, 178, 0); transform: scale(1.03); }
+          100% { box-shadow: 0 0 0 0 rgba(0, 194, 178, 0); transform: scale(1); }
+      }
+      .pulse-animation {
+          animation: pulse-custom 2s infinite;
+      }
+
+      /* Hover nos Cards */
+      .treatment-card, .payment-card {
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .treatment-card:hover, .payment-card:hover {
+          transform: translateY(-10px);
+          box-shadow: 0 15px 30px rgba(0,0,0,0.15) !important;
+      }
+
+      /* --- 4. HERO BANNER --- */
+      #hero-banner {
+          background-image: url("assets/images/11-2000x1414.webp");
+          background-size: cover;
+          background-position: center top;
+          padding: 120px 0 0 0;
+          display: flex;
+          align-items: flex-end;
+          min-height: 600px;
+      }
+      .hero-img-container img { max-height: 550px; width: auto; display: block; margin: 0 auto; }
+      .hero-text-container { text-align: right; padding-bottom: 100px; color: #ffffff; }
+      .hero-text-container h1 { 
+          color: #ffffff; font-weight: 800; font-size: 3.5rem; line-height: 1.1; 
+          text-shadow: 0 3px 6px rgba(0,0,0,0.15);
+      }
+      .hero-text-container p { font-size: 1.3rem; font-weight: 500; opacity: 0.95; margin-bottom: 30px; }
+      
+      .btn-hero { 
+          background-color: #ffffff; color: var(--turquesa); font-weight: 800; 
+          border-radius: 50px; padding: 15px 40px; text-transform: uppercase; border: none; 
+          box-shadow: 0 5px 15px rgba(0,0,0,0.2); transition: all 0.3s; 
+      }
+      .btn-hero:hover { background-color: #f0f0f0; transform: translateY(-3px); color: var(--turquesa); text-decoration: none; }
+
+      /* --- 5. FUNDOS TEXTURIZADOS --- */
+      .bg-turquesa-texture {
+          background: linear-gradient(rgba(0, 194, 178, 0.95), rgba(0, 194, 178, 0.95)), url("assets/images/11-2000x1414.webp");
+          background-size: cover; background-position: center; background-attachment: fixed;
+          padding: 80px 0; color: white;
+      }
+      .bg-turquesa-texture h2, .bg-turquesa-texture p { color: white !important; }
+      
+      .bg-light-texture {
+          background: linear-gradient(rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.92)), url("assets/images/11-2000x1414.webp");
+          background-size: cover; background-position: center; background-attachment: fixed;
+      }
+
+      /* --- 6. ELEMENTOS GERAIS --- */
+      .btn-primary { background-color: var(--turquesa); border: none; border-radius: 50px; font-weight: 700; padding: 12px 30px; text-transform: uppercase; }
+      .btn-primary:hover { background-color: #009688; transform: scale(1.05); }
+      
+      .btn-white-outline {
+          background: transparent; border: 2px solid white; color: white; border-radius: 50px; padding: 12px 30px; font-weight: 700; text-transform: uppercase;
+      }
+      .btn-white-outline:hover { background: white; color: var(--turquesa); text-decoration: none; }
+
+      h2 { color: var(--turquesa); font-weight: 800; text-align: center; margin-bottom: 15px; font-size: 2.5rem; }
+      
+      /* Subtítulo longo (Listas de áreas) */
+      .section-subtitle { 
+          text-align: center; 
+          color: var(--cinza-texto); 
+          margin-bottom: 50px; 
+          font-size: 0.95rem; /* Tamanho menor para o texto longo */
+          line-height: 1.6;
+          max-width: 90%;
+          margin-left: auto; 
+          margin-right: auto;
+      }
+
+      /* Cards */
+      .treatment-card { 
+          text-align: center; margin-bottom: 40px; background: white; 
+          border-radius: 15px; padding: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); 
+          height: 100%; /* Altura igual */
+      }
+      .treatment-card img { width: 100%; height: 250px; object-fit: cover; border-radius: 10px; margin-bottom: 20px; }
+      .treatment-card h4 { color: var(--turquesa); font-size: 1.4rem; font-weight: 700; margin-bottom: 10px; }
+      .treatment-card p { font-size: 0.9rem; min-height: 50px; line-height: 1.4; color: #666; }
+
+      .payment-card { 
+          background: white; border-radius: 20px; padding: 40px 20px; text-align: center; 
+          box-shadow: 0 10px 40px rgba(0,0,0,0.08); border: none; margin-bottom: 30px; 
+      }
+      .payment-icon { font-size: 3rem; color: var(--turquesa); margin-bottom: 20px; }
+      .payment-card h5 { color: var(--turquesa); font-weight: 800; margin: 0; font-size: 1.3rem; }
+
+      /* Mapa */
+      .map-wrapper { border-radius: 20px; overflow: hidden; box-shadow: 0 15px 40px rgba(0,0,0,0.1); margin-bottom: 50px; }
+      .map-wrapper iframe { width: 100%; height: 450px; border: none; display: block; }
+      .map-info { background: #ffffff; padding: 15px; text-align: center; color: #777; font-size: 0.9rem; }
+
+      /* Whatsapp */
+      .whatsapp-btn { position: fixed; bottom: 25px; right: 25px; background-color: var(--turquesa); color: white; width: 65px; height: 65px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 35px; box-shadow: 0 5px 20px rgba(0,0,0,0.2); z-index: 9999; transition: all 0.3s; animation: pulse-custom 3s infinite; }
+      .whatsapp-btn:hover { background-color: #009688; transform: scale(1.1); color: white; text-decoration: none; }
+  </style>
+</head>
+
+<body style="padding-top: 90px;">
+
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">
+            <img src="assets/images/logo-sublimme.png" alt="Sublimme Laser">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="index.html">INICIAL</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">TRATAMENTOS</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="procedimentos.html">Depilação a Laser</a>
+                        <a class="dropdown-item" href="tratamento-foliculite.html">Foliculite</a>
+                        <a class="dropdown-item" href="remocao-tatuagem.html">Remoção de Tatuagem</a>
+                        <a class="dropdown-item" href="remocao-correcao-micropigmentacao.html">Micropigmentação</a>
+                        <a class="dropdown-item" href="tratamento-melasma.html">Melasma</a>
+                        <a class="dropdown-item" href="tratamento-estrias.html">Estrias</a>
+                        <a class="dropdown-item" href="clareamento-intimo.html">Clareamento Íntimo</a>
+                        <a class="dropdown-item" href="rejuvenescimento-facial.html">Rejuvenescimento</a>
+                        <a class="dropdown-item" href="tratamento-cicatriz.html">Cicatrizes</a>
+                        <a class="dropdown-item" href="tratamento-clareamento-olheira.html">Olheiras</a>
+                    </div>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="https://instagram.com/sublimmelaser" target="_blank">INSTAGRAM</a></li>
+                <li class="nav-item"><a class="nav-link" href="contato.html">CONTATO</a></li>
+            </ul>
+        </div>
+    </div>
+  </nav>
+
+  <section id="hero-banner">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 hero-img-container">
+                <img src="assets/images/modelo-sublimme.png" class="img-fluid" alt="Mulher">
+            </div>
+            <div class="col-lg-6 hero-text-container">
+                <h1>Depilação a Laser<br>Contagem</h1>
+                <p>Tecnologia de ponta, conforto e resultados definitivos. Experimente a diferença com a Sublimme Laser.</p>
+                <a href="https://wa.me/5531999999999" class="btn-hero pulse-animation">AGENDAR AVALIAÇÃO</a>
+            </div>
+        </div>
+    </div>
+  </section>
+
+  <section class="py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-5 mb-4 mb-md-0 text-center">
+                <img src="assets/images/promocao-depilacao-laser-contagem-816x816.png" class="img-fluid rounded shadow" alt="Promoção">
+            </div>
+            <div class="col-md-7 text-center text-md-left pl-md-5">
+                <h2 style="text-align: left;">Realize seu Sonho!</h2>
+                <p class="lead text-muted">Chegou a hora de realizar seu sonho! A Sublimme Laser Contagem oferece um desconto imperdível de <strong>70%</strong> em todos os procedimentos de depilação a laser.</p>
+                <a href="https://wa.me/5531999999999" class="btn btn-primary btn-lg mt-3 pulse-animation">QUERO O DESCONTO!</a>
+            </div>
+        </div>
+    </div>
+  </section>
+
+  <section class="bg-turquesa-texture">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6 mb-4 mb-md-0">
+                <h2>Tratamento 100% Garantido!</h2>
+                <p class="lead">A Sublimme Laser usa métodos diferenciados e é a única no Brasil que utiliza tecnologia por fibra óptica! Garantia de conforto e resultados reais.</p>
+                <a href="https://wa.me/5531999999999" class="btn btn-white-outline mt-3">ENTRE EM CONTATO</a>
+            </div>
+            <div class="col-md-6">
+                <div class="embed-responsive embed-responsive-16by9 rounded shadow-lg" style="border-radius: 15px; overflow: hidden;">
+                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/7VprJmTUMSc?rel=0&showinfo=0" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-light-texture">
+    <div class="container">
+        <div class="row align-items-center mb-5">
+            <div class="col-md-5 text-center mb-4 mb-md-0">
+                <img src="assets/images/maquina.png" class="img-fluid rounded shadow" alt="Máquina">
+            </div>
+            <div class="col-md-7 pl-md-5 text-center text-md-left">
+                <h2 style="text-align: left;">Tecnologia de Ponta!</h2>
+                <p class="text-muted lead">A Sublimme Laser Contagem oferece tratamentos estéticos avançados com garantia de eficácia. Especializada em melasma, clareamento íntimo, remoção de tatuagem, remoção de micropigmentação, tratamento de estrias, foliculite, cicatrizes, rejuvenescimento facial, onicomicose e telangiectasia, a clínica utiliza tecnologias de ponta para garantir resultados satisfatórios. Conte com a Sublimme Laser Contagem para alcançar seus objetivos estéticos com segurança e eficácia.</p>
+                <a href="procedimentos.html" class="btn btn-primary mt-3">VER PROCEDIMENTOS</a>
+            </div>
+        </div>
+        
+        <div class="text-center pt-5">
+            <h2>Sobre a Sublimme Laser</h2>
+            <p class="section-subtitle">A Sublimme Laser é uma rede de clínicas com a melhor e mais eficaz solução de depilação a laser e procedimentos estéticos do mercado. Através de uma tecnologia inovadora e com tratamentos sob medida para a necessidade de cada cliente, atendemos todos os tipos de pele, inclusive as bronzeadas, proporcionando ótimos resultados com serviços de altíssima qualidade. Conheça nossa unidade em Contagem!</p>
+        </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-light-texture">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-md-4 mb-4">
+                <div class="treatment-card h-100">
+                    <img src="assets/images/depilacao-a-laser-pela-macia-1.webp" class="img-fluid rounded mb-3">
+                    <h4>PELE LISA E MACIA</h4>
+                    <p class="text-muted small">Nosso método garante pele lisa, macia e sem pelos, com resultados logo após a 1ª sessão. Por isso, é a opção ideal para pessoas sensíveis a métodos tradicionais como cera e lâmina.</p>
+                    <a href="#" class="btn btn-primary btn-sm mt-2">CONTATO</a>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="treatment-card h-100">
+                    <img src="assets/images/depilacao-laser-definitiva-1.webp" class="img-fluid rounded mb-3">
+                    <h4>EFEITO DEFINITIVO</h4>
+                    <p class="text-muted small">A Sublimme Laser proporciona o melhor tratamento e a mais eficaz solução de depilação a laser do mercado, gerando resultados definitivos com serviços de altíssima qualidade.</p>
+                    <a href="#" class="btn btn-primary btn-sm mt-2">CONTATO</a>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="treatment-card h-100">
+                    <img src="assets/images/depilacao-laser-tempo-1.webp" class="img-fluid rounded mb-3">
+                    <h4>GANHO DE TEMPO</h4>
+                    <p class="text-muted small">Chega de se depilar às pressas com lâmina! Além de irritar a pele e causar foliculite, o processo é demorado e demanda um tempo disponível que, na maioria das vezes, não temos.</p>
+                    <a href="#" class="btn btn-primary btn-sm mt-2">CONTATO</a>
+                </div>
+            </div>
+        </div>
+    </div>
+  </section>
+
+  <section class="py-5 text-center bg-turquesa-texture">
+    <div class="container">
+        <h2 style="color: white; margin: 0; text-align: center;">AUTOESTIMA EM PRIMEIRO LUGAR!</h2>
+        <p style="color: white; margin: 0; font-size: 1.2rem;">Sinta-se bem em qualquer hora e ocasião!</p>
+    </div>
+  </section>
+
+  <section class="py-5">
+    <div class="container">
+        <h2>Depilação a Laser Feminina</h2>
+        <p class="section-subtitle">Depilação a laser de axilas, braços, glúteos, antebraços, aréolas, buço, coxas, entre seios, face lateral, faixa de coxa, glabela, Inter glúteos, linha alba, lomba, meia perna, mãos e dedos, mento (queixo), nuca, perianal, perna inteira, pés e dedos, pescoço, rosto, testa, nariz, virilha íntima, virilha completa e virilha simples (biquíni).</p>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="treatment-card">
+                    <img src="assets/images/depilacao-virilha-596x596.webp">
+                    <h4>Depilação Virilha</h4>
+                    <p>Depilação a laser definitiva das virilhas.</p>
+                    <a href="#" class="btn btn-primary btn-sm">CONTATO</a>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="treatment-card">
+                    <img src="assets/images/depilacao-lase-axilas.png">
+                    <h4>Depilação Axilas</h4>
+                    <p>Depilação a laser definitiva das axilas.</p>
+                    <a href="#" class="btn btn-primary btn-sm">CONTATO</a>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="treatment-card">
+                    <img src="assets/images/depilacao-queixo-596x596.webp"> 
+                    <h4>Depilação Queixo</h4>
+                    <p>Depilação a laser definitiva mento (queixo).</p>
+                    <a href="#" class="btn btn-primary btn-sm">CONTATO</a>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="treatment-card">
+                    <img src="assets/images/depilacao-laser-pernas-f.png">
+                    <h4>Depilação Pernas</h4>
+                    <p>Depilação a laser definitiva das pernas.</p>
+                    <a href="#" class="btn btn-primary btn-sm">CONTATO</a>
+                </div>
+            </div>
+        </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-light-texture">
+    <div class="container">
+        <h2>Depilação a Laser Masculina</h2>
+        <p class="section-subtitle">Depilação a laser abdômen, antebraços, axilas, barba, bigode, base do pênis, peito, braços, cabeça, costeletas, coxas, dorsal, glabela, glúteos, Inter glúteos, lombar, mãos e dedos, ½ perna, maxilar, nariz, nuca, ombros, orelhas, perianal, perna inteira, pés e dedos, pescoço, testa, tórax e virilha.</p>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="treatment-card">
+                    <img src="assets/images/depilao-laser-barba-1.webp">
+                    <h4>Depilação Barba</h4>
+                    <p>Depilação a laser definitiva barba e bigode.</p>
+                    <a href="#" class="btn btn-primary btn-sm">CONTATO</a>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="treatment-card">
+                    <img src="assets/images/depilacao-laser-axilas-masculino.webp">
+                    <h4>Depilação Axilas</h4>
+                    <p>Depilação a laser definitiva das axilas.</p>
+                    <a href="#" class="btn btn-primary btn-sm">CONTATO</a>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="treatment-card">
+                    <img src="assets/images/depilacao-peito-masculino-596x596.webp">
+                    <h4>Depilação Peito</h4>
+                    <p>Depilação a laser definitiva do peito.</p>
+                    <a href="#" class="btn btn-primary btn-sm">CONTATO</a>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="treatment-card">
+                    <img src="assets/images/depilacao-perna-masculina-596x596.webp">
+                    <h4>Depilação Pernas</h4>
+                    <p>Depilação a laser definitiva das pernas.</p>
+                    <a href="#" class="btn btn-primary btn-sm">CONTATO</a>
+                </div>
+            </div>
+        </div>
+    </div>
+  </section>
+
+  <section class="py-4 text-center bg-turquesa-texture">
+    <div class="container">
+        <h2 style="color: white; margin: 0;">DEPILAÇÃO DEFINITIVA A LASER</h2>
+        <p style="color: white; margin: 0;">Ganhe tempo e nunca mais se preocupe com lâminas que irritam a pele!</p>
+    </div>
+  </section>
+
+  <section class="py-5">
+    <div class="container">
+        <h2>Pagamentos</h2>
+        <p class="section-subtitle">Aceitamos os principais métodos de pagamento e oferecemos as melhores condições. Dividimos em até 12x sem juros!</p>
+        <div class="row justify-content-center">
+            <div class="col-md-3">
+                <div class="payment-card">
+                    <div class="payment-icon"><i class="far fa-credit-card"></i></div>
+                    <h5>Cartão</h5>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="payment-card">
+                    <div class="payment-icon"><i class="fas fa-qrcode"></i></div>
+                    <h5>PIX</h5>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="payment-card">
+                    <div class="payment-icon"><i class="fas fa-money-bill-wave"></i></div>
+                    <h5>Dinheiro</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+  </section>
+
+  <section class="py-4">
+      <div class="container">
+          <div class="row justify-content-center">
+              <div class="col-12 col-lg-10">
+                  <div class="map-wrapper">
+                      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3750.99999999!2d-44.0!3d-19.9!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDU0JzAwLjAiUyA0NMKwMDAnMDAuMCJX!5e0!3m2!1spt-BR!2sbr!4v1600000000000!5m2!1spt-BR!2sbr" allowfullscreen="" loading="lazy"></iframe>
+                      <div class="map-info">
+                          Região de fácil acesso e vaga disponível na frente da clínica.
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+
+  <footer class="py-4 text-center text-white" style="background-color: var(--azul-escuro);">
+    <div class="container">
+        <p class="mb-0">© 2025 Sublimme Laser. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/5531999999999" target="_blank" class="whatsapp-btn">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

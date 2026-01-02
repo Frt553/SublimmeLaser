@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  
+  <title>PROCEDIMENTOS ESTÉTICOS - Sublimme Laser</title>
+  <meta name="description" content="Conheça todos os procedimentos estéticos da Sublimme Laser. Depilação, Rejuvenescimento, Clareamento e muito mais.">
+  <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon">
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+
+  <link href="https://fonts.googleapis.com/css?family=Jost:300,400,500,600,700,800&display=swap" rel="stylesheet">
+
+  <style>
+      /* --- IDENTIDADE VISUAL --- */
+      :root {
+          --turquesa: #00c2b2;
+          --azul-escuro: #003366;
+          --cinza-texto: #555555;
+          --fundo-cinza: #f8f9fa;
+      }
+      body { font-family: 'Jost', sans-serif; color: var(--cinza-texto); overflow-x: hidden; }
+      
+      /* MENU */
+      .navbar { background-color: #ffffff; box-shadow: 0 4px 20px rgba(0,0,0,0.05); min-height: 90px; padding: 10px 0; }
+      .navbar-brand img { height: 5rem; width: auto; }
+      .nav-link { color: var(--turquesa) !important; font-weight: 700; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 0.5px; margin-left: 20px; transition: color 0.3s; }
+      .nav-link:hover { color: var(--azul-escuro) !important; }
+      .dropdown-menu { border-top: 4px solid var(--turquesa); border-radius: 0 0 8px 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+      .dropdown-item { color: var(--turquesa); font-weight: 600; font-size: 0.9rem; padding: 10px 20px; border-bottom: 1px solid #f5f5f5; }
+      .dropdown-item:hover { background-color: #e0f7fa; padding-left: 25px; transition: 0.3s; }
+
+      /* HERO BANNER */
+      #hero-banner {
+          background-image: url("assets/images/11-2000x1414.webp");
+          background-size: cover;
+          background-position: center top;
+          padding: 140px 0 80px 0;
+          display: flex;
+          align-items: center;
+          min-height: 450px;
+      }
+      .hero-text-container { text-align: center; color: white; width: 100%; }
+      .hero-text-container h1 { font-weight: 800; font-size: 3.5rem; line-height: 1.1; text-shadow: 0 3px 6px rgba(0,0,0,0.15); margin-bottom: 20px; }
+      .hero-text-container p { font-size: 1.3rem; font-weight: 500; opacity: 0.95; }
+
+      /* ESTILO DOS CARDS NO CARROSSEL */
+      .treatment-card { 
+          text-align: center; 
+          background: white; 
+          border-radius: 20px; 
+          padding: 20px; 
+          box-shadow: 0 5px 15px rgba(0,0,0,0.05); 
+          margin: 15px; /* Espaço entre os slides */
+          transition: 0.3s;
+          border: 1px solid #eee;
+      }
+      .treatment-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
+      .treatment-card img { 
+          width: 100%; height: 200px; object-fit: cover; border-radius: 15px; margin-bottom: 20px; 
+      }
+      .treatment-card h4 { color: var(--turquesa); font-size: 1.2rem; font-weight: 800; margin-bottom: 10px; height: 50px; display: flex; align-items: center; justify-content: center; }
+      .treatment-card p { font-size: 0.85rem; margin-bottom: 20px; color: #666; height: 60px; overflow: hidden; }
+
+      /* CUSTOMIZAÇÃO DAS SETAS E DOTS DO CARROSSEL (NOVO) */
+      .owl-dots { text-align: center; margin-top: 20px; }
+      .owl-dot span { background: #ccc !important; width: 10px !important; height: 10px !important; margin: 5px !important; transition: 0.3s; }
+      .owl-dot.active span { background: var(--turquesa) !important; transform: scale(1.3); }
+
+      /* Setas de Navegação */
+      .owl-nav button {
+          position: absolute;
+          top: 40%;
+          transform: translateY(-50%);
+          background: var(--turquesa) !important;
+          color: white !important;
+          width: 45px;
+          height: 45px;
+          border-radius: 50%;
+          display: flex !important;
+          align-items: center;
+          justify-content: center;
+          font-size: 20px !important;
+          box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+          transition: 0.3s;
+          opacity: 0.8;
+      }
+      .owl-nav button:hover {
+          background: var(--azul-escuro) !important;
+          transform: translateY(-50%) scale(1.1);
+          opacity: 1;
+      }
+      .owl-prev { left: -25px; } /* Posiciona fora à esquerda */
+      .owl-next { right: -25px; } /* Posiciona fora à direita */
+
+      /* Ajuste para telas menores (setas não saírem da tela) */
+      @media (max-width: 768px) {
+          .owl-prev { left: 0; }
+          .owl-next { right: 0; }
+      }
+      
+      /* TEXTURA DE FUNDO */
+      .bg-light-texture {
+          background: linear-gradient(rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.92)), url("assets/images/11-2000x1414.webp");
+          background-size: cover; background-position: center; background-attachment: fixed;
+      }
+
+      /* BOTÕES */
+      .btn-primary { background-color: var(--turquesa); border: none; border-radius: 50px; font-weight: 700; padding: 10px 30px; text-transform: uppercase; width: 100%; }
+      .btn-primary:hover { background-color: #009688; transform: scale(1.05); }
+
+      /* WHATSAPP */
+      .whatsapp-btn { position: fixed; bottom: 25px; right: 25px; background-color: var(--turquesa); color: white; width: 65px; height: 65px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 35px; box-shadow: 0 5px 20px rgba(0,0,0,0.2); z-index: 9999; transition: all 0.3s; animation: pulse-custom 3s infinite; }
+      .whatsapp-btn:hover { background-color: #009688; transform: scale(1.1); color: white; text-decoration: none; }
+      
+      @keyframes pulse-custom {
+          0% { box-shadow: 0 0 0 0 rgba(0, 194, 178, 0.7); transform: scale(1); }
+          70% { box-shadow: 0 0 0 15px rgba(0, 194, 178, 0); transform: scale(1.03); }
+          100% { box-shadow: 0 0 0 0 rgba(0, 194, 178, 0); transform: scale(1); }
+      }
+  </style>
+</head>
+
+<body style="padding-top: 90px;">
+
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">
+            <img src="assets/images/logo-sublimme.png" alt="Sublimme Laser">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="index.html">INICIAL</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">TRATAMENTOS</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="procedimentos.html">Depilação a Laser</a>
+                        <a class="dropdown-item" href="tratamento-foliculite.html">Foliculite</a>
+                        <a class="dropdown-item" href="remocao-tatuagem.html">Remoção de Tatuagem</a>
+                        <a class="dropdown-item" href="remocao-correcao-micropigmentacao.html">Micropigmentação</a>
+                        <a class="dropdown-item" href="tratamento-melasma.html">Melasma</a>
+                        <a class="dropdown-item" href="tratamento-estrias.html">Estrias</a>
+                        <a class="dropdown-item" href="clareamento-intimo.html">Clareamento Íntimo</a>
+                        <a class="dropdown-item" href="rejuvenescimento-facial.html">Rejuvenescimento</a>
+                        <a class="dropdown-item" href="tratamento-cicatriz.html">Cicatrizes</a>
+                        <a class="dropdown-item" href="tratamento-clareamento-olheira.html">Olheiras</a>
+                    </div>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="https://instagram.com/sublimmelaser" target="_blank">INSTAGRAM</a></li>
+                <li class="nav-item"><a class="nav-link" href="contato.html">CONTATO</a></li>
+            </ul>
+        </div>
+    </div>
+  </nav>
+
+  <section id="hero-banner">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 hero-text-container">
+                <h1>Procedimentos Estéticos</h1>
+                <p>Tecnologia de ponta e resultados definitivos para você.</p>
+            </div>
+        </div>
+    </div>
+  </section>
+
+  <section class="py-5 text-center">
+      <div class="container">
+          <h2 style="color: var(--azul-escuro);">A Sublimme Laser é muito mais!</h2>
+          <p class="lead text-muted">Conheça todos os procedimentos estéticos que temos para lhe oferecer!</p>
+      </div>
+  </section>
+
+  <section class="py-5 bg-light-texture">
+    <div class="container">
+        <div class="owl-carousel owl-theme" id="procedures-carousel">
+            
+            <div class="item">
+                <div class="treatment-card">
+                    <img src="assets/images/tratamento-foliculite-contagem-meta.png" alt="Foliculite">
+                    <h4>Tratamento Foliculite</h4>
+                    <p>Elimine a inflamação dos pelos e conquiste uma pele lisa.</p>
+                    <a href="tratamento-foliculite-contagem.html" class="btn btn-primary">Saiba Mais</a>
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="treatment-card">
+                    <img src="assets/images/remocao-tatuagem-contagem-meta.png" alt="Remoção de Tatuagem">
+                    <h4>Remoção de Tatuagens</h4>
+                    <p>Tecnologia segura para remover tatuagens indesejadas.</p>
+                    <a href="remocao-tatuagem-contagem.html" class="btn btn-primary">Saiba Mais</a>
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="treatment-card">
+                    <img src="assets/images/remocao-correcao-micropigmentacao-contagem-meta.png" alt="Micropigmentação">
+                    <h4>Micropigmentação</h4>
+                    <p>Correção e remoção de micropigmentação de sobrancelhas.</p>
+                    <a href="remocao-correcao-micropigmentacao-contagem.html" class="btn btn-primary">Saiba Mais</a>
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="treatment-card">
+                    <img src="assets/images/tratamento-melasma-contagem-meta.png" alt="Melasma">
+                    <h4>Melasma</h4>
+                    <p>Tratamento eficaz para manchas escuras na pele.</p>
+                    <a href="tratamento-melasma-contagem.html" class="btn btn-primary">Saiba Mais</a>
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="treatment-card">
+                    <img src="assets/images/tratamento-estrias-contagem-meta.png" alt="Estrias">
+                    <h4>Remoção de Estrias</h4>
+                    <p>Melhore a aparência da pele e reduza as estrias.</p>
+                    <a href="tratamento-estrias-contagem.html" class="btn btn-primary">Saiba Mais</a>
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="treatment-card">
+                    <img src="assets/images/clareamento-intimo-homem-mulher-axilas-virilha-anus-contagem-3-816x816.webp" alt="Clareamento Íntimo">
+                    <h4>Clareamento Íntimo</h4>
+                    <p>Clareamento seguro para áreas íntimas, axilas e virilha.</p>
+                    <a href="clareamento-intimo-contagem.html" class="btn btn-primary">Saiba Mais</a>
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="treatment-card">
+                    <img src="assets/images/rejuvenescimento-facial-contagem-meta.png" alt="Rejuvenescimento">
+                    <h4>Rejuvenescimento</h4>
+                    <p>Pele mais jovem, firme e radiante com nossa tecnologia.</p>
+                    <a href="rejuvenescimento-facial-contagem.html" class="btn btn-primary">Saiba Mais</a>
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="treatment-card">
+                    <img src="assets/images/tratamento-cicatriz-contagem-meta.png" alt="Cicatrizes">
+                    <h4>Cicatrizes</h4>
+                    <p>Suavize marcas e cicatrizes para uma pele uniforme.</p>
+                    <a href="tratamento-cicatriz-contagem.html" class="btn btn-primary">Saiba Mais</a>
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="treatment-card">
+                    <img src="assets/images/tracamento-onicomicose-micose-unhas-contagem-816x816.png" alt="Onicomicose">
+                    <h4>Micose nas Unhas</h4>
+                    <p>Tratamento a laser eficaz contra fungos nas unhas.</p>
+                    <a href="tratamento-onicomicose-micose-unhas-contagem.html" class="btn btn-primary">Saiba Mais</a>
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="treatment-card">
+                    <img src="assets/images/tratamento-clareamento-olheira-contagem-meta.png" alt="Olheiras">
+                    <h4>Olheiras</h4>
+                    <p>Reduza o aspecto cansado e as manchas ao redor dos olhos.</p>
+                    <a href="tratamento-clareamento-olheira-contagem.html" class="btn btn-primary">Saiba Mais</a>
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="treatment-card">
+                    <img src="assets/images/depilacao-lase-axilas.png" alt="Depilação a Laser">
+                    <h4>Depilação a Laser</h4>
+                    <p>O método mais eficiente para remoção definitiva de pelos.</p>
+                    <a href="index.html" class="btn btn-primary">Saiba Mais</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+  </section>
+
+  <footer class="py-4 text-center text-white" style="background-color: var(--azul-escuro);">
+    <div class="container">
+        <p class="mb-0">© 2025 Sublimme Laser. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/5531999999999" target="_blank" class="whatsapp-btn">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+  <script>
+    $(document).ready(function(){
+      $("#procedures-carousel").owlCarousel({
+        loop: true,
+        margin: 20,
+        nav: true, // Ativa as setas
+        navText: ['<i class="fas fa-chevron-left"></i>', '<i class="fas fa-chevron-right"></i>'], // Ícones das setas
+        dots: true,
+        autoplay: true,
+        autoplayTimeout: 3000,
+        autoplayHoverPause: true,
+        responsive: {
+          0: { items: 1 },      /* Celular: 1 item */
+          600: { items: 2 },    /* Tablet: 2 itens */
+          1000: { items: 3 }    /* PC: 3 itens */
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
